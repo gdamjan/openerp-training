@@ -3,6 +3,7 @@
 	<menuitem
 		icon="terp-partner"
 		id="base.menu_base_obuka"
+		parent="base.menu_base_partner"
 		name="Obuka"
 		sequence="10" />
 	
