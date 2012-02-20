@@ -27,6 +27,21 @@
     	</field>
     </record>
 
-	
+	<record id="action_obuka_tree"
+		model="ir.actions.act_window">
+		<field name="name">Obuke</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">obuka.session</field>
+		<field name="view_type">form</field>
+		<field name="view_id" ref="view_obuka_session_tree"/>
+	</record>
+
+	<menuitem id="obuka_root_menu"
+		name="Trainings" />
+	<menuitem id="obuka_session_menu"
+		name="Obuke"
+		parent="obuka_root_menu"
+		action="action_obuka_tree" />
+
 </data>
 </openerp>
