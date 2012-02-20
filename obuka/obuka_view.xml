@@ -1,0 +1,10 @@
+<openerp>
+<data>
+	<menuitem
+		icon="terp-partner"
+		id="base.menu_base_obuka"
+		name="Obuka"
+		sequence="10" />
+	
+</data>
+</openerp>
