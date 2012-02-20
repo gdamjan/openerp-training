@@ -26,7 +26,7 @@
     "description": "test test some description",
     'website': 'http://damjan.softver.org.mk',
     'init_xml': [],
-    "depends" : [],
+    "depends" : ['base'],
     'update_xml': ['obuka_view.xml'],
     'demo_xml': [],
     'test': [],
