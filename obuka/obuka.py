@@ -4,7 +4,9 @@ from osv import osv, fields
 class obuka_session(osv.osv):
     _name = "obuka.session"
     _columns = {
-       'name': fields.char('Name', size=32, required=True),
+       'name': fields.char('Name', size=32, required=True,readonly=True,
+            states={'draft': [('readonly', False)]}
+            ),
        'description': fields.text('Description'),
        'state': fields.selection([
             ('draft', 'Draft'),
@@ -12,7 +14,8 @@ class obuka_session(osv.osv):
             ('cancel', 'Cancel'),
         ],
         'State',
-        required=True),
+        required=True,
+        readonly=True),
        'responsible_id': fields.many2one('res.users', 'Responsible user'),
        'course_ids': fields.one2many('obuka.course', 'session_id', 'Course')
     }
@@ -27,7 +30,8 @@ class obuka_course(osv.osv):
        'name': fields.char('Name', size=32),
        'date': fields.date('Date'),
        'description': fields.text('Description'),
-       'instructor_id': fields.many2one('res.partner', 'Instructor'),
+       'instructor_id': fields.many2one('res.partner', 'Instructor',
+            help='Instructor that is in charge'),
        'max_users': fields.integer('Max users'),
        'session_id': fields.many2one('obuka.session', 'Session')
     }
