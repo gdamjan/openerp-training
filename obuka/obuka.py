@@ -3,6 +3,7 @@ from osv import osv, fields
 
 class obuka_session(osv.osv):
     _name = "obuka.session"
+    _order = 'name'
     _columns = {
        'name': fields.char('Name', size=32, required=True,readonly=True,
             states={'draft': [('readonly', False)]}
@@ -19,6 +20,12 @@ class obuka_session(osv.osv):
        'responsible_id': fields.many2one('res.users', 'Responsible user'),
        'course_ids': fields.one2many('obuka.course', 'session_id', 'Course')
     }
+    
+    def session_done(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state':'done'})
+        return True
+
+
 
 obuka_session()
 
