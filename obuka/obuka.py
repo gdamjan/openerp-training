@@ -10,15 +10,19 @@ class obuka_session(osv.osv):
             ),
        'description': fields.text('Description'),
        'state': fields.selection([
-            ('draft', 'Draft'),
-            ('done', 'Done'),
-            ('cancel', 'Cancel'),
-        ],
-        'State',
-        required=True,
-        readonly=True),
+              ('draft', 'Draft'),
+              ('done', 'Done'),
+              ('cancel', 'Cancel'),
+            ],'State',
+            required=True,
+            readonly=True),
        'responsible_id': fields.many2one('res.users', 'Responsible user'),
-       'course_ids': fields.one2many('obuka.course', 'session_id', 'Course')
+       'course_ids': fields.one2many('obuka.course', 'session_id', 'Course'),
+       'attendee_ids': fields.many2many('res.partner',
+                                        'session_partner_rel',
+                                        'session_id',
+                                        'partner_id',
+                                        'Attendees')
     }
     
     def session_done(self, cr, uid, ids, *args):
