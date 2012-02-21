@@ -1,0 +1,10 @@
+<openerp>
+   <data>
+      <record id="group_obuka" model="res.groups">
+         <field name="name">Obuka group</field>
+      </record>
+       <record id="group_admin_obuka" model="res.groups">
+         <field name="name">Obuka Admin group</field>
+      </record>
+   </data>
+</openerp>

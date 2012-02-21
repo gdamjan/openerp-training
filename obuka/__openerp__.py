@@ -27,7 +27,13 @@
     'website': 'http://damjan.softver.org.mk',
     'init_xml': [],
     "depends" : ['base'],
-    'update_xml': ['obuka_view.xml', 'partner_view.xml'],
+    'update_xml': [
+            'security/obuka_security.xml',
+            'security/ir.model.access.csv',
+            'obuka_view.xml',
+            'partner_view.xml'
+            ],
+
     'demo_xml': [],
     'test': [],
     'installable': True,
