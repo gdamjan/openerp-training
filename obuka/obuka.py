@@ -24,7 +24,14 @@ class obuka_session(osv.osv):
     def session_done(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'done'})
         return True
-
+    
+    def session_draft(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state':'draft'})
+        return True
+        
+    def session_cancel(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state':'cancel'})
+        return True
 
 
 obuka_session()
