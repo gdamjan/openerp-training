@@ -10,9 +10,9 @@
     	<field name="model">obuka.session</field>
     	<field name="type">tree</field>
     	<field name="arch" type="xml">
-    	   <tree string="Obuke">
-    	   	  <field name="name"/>
-    	   	  <field name="state"/>
+    	   <tree string="Obuke" colors="grey:state=='cancel';blue:state=='done'">
+    	   	  <field name="name" />
+    	   	  <field name="state" />
     	   	  <field name="description"/>
     	   	  <field name="responsible_id"/>
     	   </tree>
