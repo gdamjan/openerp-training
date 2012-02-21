@@ -9,7 +9,11 @@ class obuka_partner(osv.osv):
                                         'session_partner_rel',
                                         'partner_id',
                                         'session_id',
-                                        'Sessions attending')        
+                                        'Sessions attending'),
+	'trainer': fields.boolean('Trainer'),       
+    }
+    _defaults = {
+	'trainer': False
     }
 
 obuka_partner()

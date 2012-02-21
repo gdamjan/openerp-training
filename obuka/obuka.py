@@ -24,15 +24,15 @@ class obuka_session(osv.osv):
                                         'partner_id',
                                         'Attendees')
     }
-    
+
     def session_done(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'done'})
         return True
-    
+
     def session_draft(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'draft'})
         return True
-        
+
     def session_cancel(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'cancel'})
         return True
@@ -53,11 +53,11 @@ class obuka_course(osv.osv):
        'max_users': fields.integer('Max users'),
        'session_id': fields.many2one('obuka.session', 'Session')
     }
-    
+
     _defaults = {
        'max_users':10
     }
-    
+
     _sql_constraints = [
         ('max_max_users', 'CHECK(max_users<50)', 'Max users limit exceeded'),
     ]

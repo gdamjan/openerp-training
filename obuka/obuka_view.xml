@@ -1,134 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data>
-	<menuitem id="obuka_root_menu"
-		name="Trainings" />
+   <data>
+      <menuitem id="obuka_root_menu"
+         name="Trainings" />
 
-    <record id="view_obuka_session_tree"
-    	model="ir.ui.view">
-    	<field name="name">view.obuka.session.tree</field>
-    	<field name="model">obuka.session</field>
-    	<field name="type">tree</field>
-    	<field name="arch" type="xml">
-    	   <tree string="Obuke" colors="grey:state=='cancel';blue:state=='done'">
-    	   	  <field name="name" />
-    	   	  <field name="state" />
-    	   	  <field name="description"/>
-    	   	  <field name="responsible_id"/>
-    	   </tree>
-    	</field>
-    </record>
+      <record id="view_obuka_session_tree"
+         model="ir.ui.view">
+         <field name="name">view.obuka.session.tree</field>
+         <field name="model">obuka.session</field>
+         <field name="type">tree</field>
+         <field name="arch" type="xml">
+            <tree string="Obuke" colors="grey:state=='cancel';blue:state=='done'">
+               <field name="name" />
+               <field name="state" />
+               <field name="description"/>
+               <field name="responsible_id"/>
+            </tree>
+         </field>
+      </record>
 
-    <record id="view_obuka_session_form"
-    	model="ir.ui.view">
-    	<field name="name">view.obuka.session.tree</field>
-    	<field name="model">obuka.session</field>
-    	<field name="type">form</field>
-    	<field name="arch" type="xml">
-    	   <form string="Obuke">
-    	   	  <field name="name" colspan="4"/>
-    	   	  <field name="responsible_id"/>
-    	   	  <notebook colspan="4">
-    	   	    <page string="Courses">
-    	   	       <field name="course_ids" colspan="4" nolabel="1">
-    	   	         <form string="Courses">
-    	   	            <field name="name"/>
-    	   	  			<field name="date"/>
-    			   	    <field name="description"/>
-		    	   	    <field name="instructor_id"/>
-    	   	   			<field name="max_users"/>
-    	   	         </form>
-    	   	         <tree string="Courses">
-    	   	            <field name="name"/>
-    	   	  			<field name="date"/>
-    	   	         </tree>
-    	   	       </field>
-    	   	    </page>
-    	   	    <page string="Attendees">
-    	   	    	<field name="attendee_ids" colspan="4" nolabel="1"/>
-    	   	    </page>
-    	   	    <page string="Other info">
-    	   	       <separator colspan="4" string="Description"/>
-    	   	       <field name="description" colspan="4" nolabel="1"/>
-    	   	    </page>
-    	   	   </notebook>
-    	   	   <group col="7" colspan="4">
-	    	   	   <field name="state" colspan="4" />
-				   <button name="session_done" string="Done!" type="object" 
-				   		states="draft,cancel" icon="gtk-apply"/>    	   	   
-				   <button name="session_cancel" string="Cancel!" type="object" states="done,draft"/>    	   	   
-				   <button name="session_draft" string="Make it draft!" type="object" states="done,cancel"/>
-			   </group>   
-    	   </form>
-    
-    	</field>
-    </record>
+      <record id="view_obuka_session_form"
+         model="ir.ui.view">
+         <field name="name">view.obuka.session.tree</field>
+         <field name="model">obuka.session</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+            <form string="Obuke">
+               <field name="name" colspan="4"/>
+               <field name="responsible_id"/>
+               <notebook colspan="4">
+                  <page string="Courses">
+                     <field name="course_ids" colspan="4" nolabel="1">
+                        <form string="Courses">
+                           <field name="name"/>
+                           <field name="date"/>
+                           <field name="description"/>
+                           <field name="instructor_id"/>
+                           <field name="max_users"/>
+                        </form>
+                        <tree string="Courses">
+                           <field name="name"/>
+                           <field name="date"/>
+                        </tree>
+                     </field>
+                  </page>
+                  <page string="Attendees">
+                     <field name="attendee_ids" colspan="4" nolabel="1"/>
+                  </page>
+                  <page string="Other info">
+                     <separator colspan="4" string="Description"/>
+                     <field name="description" colspan="4" nolabel="1"/>
+                  </page>
+               </notebook>
+               <group col="7" colspan="4">
+                  <field name="state" colspan="4" />
+                  <button name="session_done" string="Done!" type="object"
+                     states="draft,cancel" icon="gtk-apply"/>
+                  <button name="session_cancel" string="Cancel!" type="object" states="done,draft"/>
+                  <button name="session_draft" string="Make it draft!" type="object" states="done,cancel"/>
+               </group>
+            </form>
 
-	<record id="action_obuka_tree"
-		model="ir.actions.act_window">
-		<field name="name">Obuke</field>
-		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">obuka.session</field>
-		<field name="view_type">form</field>
-		<field name="view_id" ref="view_obuka_session_tree"/>
-	</record>
+         </field>
+      </record>
 
-
-	<menuitem id="obuka_session_menu"
-		name="Obuke"
-		parent="obuka_root_menu"
-		action="action_obuka_tree" />
+      <record id="action_obuka_tree"
+         model="ir.actions.act_window">
+         <field name="name">Obuke</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">obuka.session</field>
+         <field name="view_type">form</field>
+         <field name="view_id" ref="view_obuka_session_tree"/>
+      </record>
 
 
+      <menuitem id="obuka_session_menu"
+         name="Obuke"
+         parent="obuka_root_menu"
+         action="action_obuka_tree" />
 
 
-    <record id="view_obuka_course_tree"
-    	model="ir.ui.view">
-    	<field name="name">view.obuka.course.tree</field>
-    	<field name="model">obuka.course</field>
-    	<field name="type">tree</field>
-    	<field name="arch" type="xml">
-    	   <tree string="Courses">
-    	   	  <field name="name"/>
-    	   	  <field name="date"/>
-    	   	  <field name="description"/>
-    	   	  <field name="instructor_id"/>
-    	   	  <field name="max_users"/>
-    	   	  <field name="session_id"/>
-    	   </tree>
-    	</field>
-    </record>
 
-    <record id="view_obuka_course_form"
-    	model="ir.ui.view">
-    	<field name="name">view.obuka.course.tree</field>
-    	<field name="model">obuka.course</field>
-    	<field name="type">form</field>
-    	<field name="arch" type="xml">
-    	   <form string="Courses">
-    	   	  <field name="name"/>
-    	   	  <field name="date"/>
-    	   	  <field name="description"/>
-    	   	  <field name="instructor_id"/>
-    	   	  <field name="max_users"/>
-    	   	  <field name="session_id"/>
-    	   </form>
-    	</field>
-    </record>
-    
-    <record id="action_course_tree"
-		model="ir.actions.act_window">
-		<field name="name">Courses</field>
-		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">obuka.course</field>
-		<field name="view_type">form</field>
-		<field name="view_id" ref="view_obuka_course_tree"/>
-	</record>
-	
-    <menuitem id="obuka_course_menu"
-		name="Courses"
-		parent="obuka_root_menu"
-		action="action_course_tree" />
-    
-</data>
+
+      <record id="view_obuka_course_tree"
+         model="ir.ui.view">
+         <field name="name">view.obuka.course.tree</field>
+         <field name="model">obuka.course</field>
+         <field name="type">tree</field>
+         <field name="arch" type="xml">
+            <tree string="Courses">
+               <field name="name"/>
+               <field name="date"/>
+               <field name="description"/>
+               <field name="instructor_id"/>
+               <field name="max_users"/>
+               <field name="session_id"/>
+            </tree>
+         </field>
+      </record>
+
+      <record id="view_obuka_course_form"
+         model="ir.ui.view">
+         <field name="name">view.obuka.course.tree</field>
+         <field name="model">obuka.course</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+            <form string="Courses">
+               <field name="name"/>
+               <field name="date"/>
+               <field name="description"/>
+               <field name="instructor_id"/>
+               <field name="max_users"/>
+               <field name="session_id"/>
+            </form>
+         </field>
+      </record>
+
+      <record id="action_course_tree"
+         model="ir.actions.act_window">
+         <field name="name">Courses</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">obuka.course</field>
+         <field name="view_type">form</field>
+         <field name="view_id" ref="view_obuka_course_tree"/>
+      </record>
+
+      <menuitem id="obuka_course_menu"
+         name="Courses"
+         parent="obuka_root_menu"
+         action="action_course_tree" />
+
+   </data>
 </openerp>
