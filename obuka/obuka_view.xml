@@ -44,6 +44,9 @@
     	   	         </tree>
     	   	       </field>
     	   	    </page>
+    	   	    <page string="Attendees">
+    	   	    	<field name="attendee_ids" colspan="4" nolabel="1"/>
+    	   	    </page>
     	   	    <page string="Other info">
     	   	       <separator colspan="4" string="Description"/>
     	   	       <field name="description" colspan="4" nolabel="1"/>
