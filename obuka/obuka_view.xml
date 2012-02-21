@@ -31,7 +31,19 @@
     	   	  <field name="state"/>
     	   	  <notebook colspan="4">
     	   	    <page string="Courses">
-    	   	       <field name="course_ids" colspan="4" nolabel="1"/>
+    	   	       <field name="course_ids" colspan="4" nolabel="1">
+    	   	         <form string="Courses">
+    	   	            <field name="name"/>
+    	   	  			<field name="date"/>
+    			   	    <field name="description"/>
+		    	   	    <field name="instructor_id"/>
+    	   	   			<field name="max_users"/>
+    	   	         </form>
+    	   	         <tree string="Courses">
+    	   	            <field name="name"/>
+    	   	  			<field name="date"/>
+    	   	         </tree>
+    	   	       </field>
     	   	    </page>
     	   	    <page string="Other info">
     	   	       <separator colspan="4" string="Description"/>
