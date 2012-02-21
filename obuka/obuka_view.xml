@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+	<menuitem id="obuka_root_menu"
+		name="Trainings" />
+
     <record id="view_obuka_session_tree"
     	model="ir.ui.view">
     	<field name="name">view.obuka.session.tree</field>
@@ -10,6 +13,8 @@
     	   <tree string="Obuke">
     	   	  <field name="name"/>
     	   	  <field name="state"/>
+    	   	  <field name="description"/>
+    	   	  <field name="responsible_id"/>
     	   </tree>
     	</field>
     </record>
@@ -23,7 +28,11 @@
     	   <form string="Obuke">
     	   	  <field name="name"/>
     	   	  <field name="state"/>
+    	   	  <field name="description"/>
+    	   	  <field name="responsible_id"/>
+    	   	  <field name="course_ids"/>
     	   </form>
+    
     	</field>
     </record>
 
@@ -36,12 +45,62 @@
 		<field name="view_id" ref="view_obuka_session_tree"/>
 	</record>
 
-	<menuitem id="obuka_root_menu"
-		name="Trainings" />
+
 	<menuitem id="obuka_session_menu"
 		name="Obuke"
 		parent="obuka_root_menu"
 		action="action_obuka_tree" />
 
+
+
+
+    <record id="view_obuka_course_tree"
+    	model="ir.ui.view">
+    	<field name="name">view.obuka.course.tree</field>
+    	<field name="model">obuka.course</field>
+    	<field name="type">tree</field>
+    	<field name="arch" type="xml">
+    	   <tree string="Courses">
+    	   	  <field name="name"/>
+    	   	  <field name="date"/>
+    	   	  <field name="description"/>
+    	   	  <field name="instructor_id"/>
+    	   	  <field name="max_users"/>
+    	   	  <field name="session_id"/>
+    	   </tree>
+    	</field>
+    </record>
+
+    <record id="view_obuka_course_form"
+    	model="ir.ui.view">
+    	<field name="name">view.obuka.course.tree</field>
+    	<field name="model">obuka.course</field>
+    	<field name="type">form</field>
+    	<field name="arch" type="xml">
+    	   <form string="Courses">
+    	   	  <field name="name"/>
+    	   	  <field name="date"/>
+    	   	  <field name="description"/>
+    	   	  <field name="instructor_id"/>
+    	   	  <field name="max_users"/>
+    	   	  <field name="session_id"/>
+    	   </form>
+    	</field>
+    </record>
+    
+    <record id="action_course_tree"
+		model="ir.actions.act_window">
+		<field name="name">Courses</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">obuka.course</field>
+		<field name="view_type">form</field>
+		<field name="view_id" ref="view_obuka_course_tree"/>
+	</record>
+	
+    <menuitem id="obuka_course_menu"
+		name="Courses"
+		parent="obuka_root_menu"
+		action="action_course_tree" />
+    
 </data>
 </openerp>

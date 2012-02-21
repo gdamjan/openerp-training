@@ -13,9 +13,31 @@ class obuka_session(osv.osv):
         ],
         'State',
         required=True),
-       'active' : fields.boolean('Active')
+       'responsible_id': fields.many2one('res.users', 'Responsible user'),
+       'course_ids': fields.one2many('obuka.course', 'session_id', 'Course')
     }
 
-
-
 obuka_session()
+
+
+class obuka_course(osv.osv):
+    _name = 'obuka.course'
+
+    _columns = {
+       'name': fields.char('Name', size=32),
+       'date': fields.date('Date'),
+       'description': fields.text('Description'),
+       'instructor_id': fields.many2one('res.partner', 'Instructor'),
+       'max_users': fields.integer('Max users'),
+       'session_id': fields.many2one('obuka.session', 'Session')
+    }
+    
+    _defaults = {
+       'max_users':10
+    }
+    
+    _sql_constraints = [
+        ('max_max_users', 'CHECK(max_users<50)', 'Max users limit exceeded'),
+    ]
+
+obuka_course()
