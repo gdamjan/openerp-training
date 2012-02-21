@@ -49,8 +49,12 @@
     	   	       <field name="description" colspan="4" nolabel="1"/>
     	   	    </page>
     	   	   </notebook>
-    	   	   <field name="state"/>
-			   <button name="session_done" string="Done!" type="object"/>    	   	   
+    	   	   <group col="5" colspan="4">
+	    	   	   <field name="state" nolabel="1"/>
+				   <button name="session_done" string="Done!" type="object" states="draft,cancel"/>    	   	   
+				   <button name="session_cancel" string="Cancel!" type="object" states="done,draft"/>    	   	   
+				   <button name="session_draft" string="Make it draft!" type="object" states="done,cancel"/>
+			   </group>    	   	   
     	   </form>
     
     	</field>
