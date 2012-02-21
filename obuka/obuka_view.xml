@@ -35,7 +35,7 @@
                            <field name="name"/>
                            <field name="date"/>
                            <field name="description"/>
-                           <field name="instructor_id"/>
+                           <field name="instructor_id" domain="[('trainer','=','True')]" />
                            <field name="max_users"/>
                         </form>
                         <tree string="Courses">
@@ -109,7 +109,7 @@
                <field name="name"/>
                <field name="date"/>
                <field name="description"/>
-               <field name="instructor_id"/>
+               <field name="instructor_id" domain="[('trainer','=','True')]"/>
                <field name="max_users"/>
                <field name="session_id"/>
             </form>
