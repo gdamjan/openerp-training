@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from osv import osv, fields
+from tools.translate import _
 
 class obuka_session(osv.osv):
     _name = "obuka.session"
@@ -67,8 +68,8 @@ class obuka_session(osv.osv):
             curr_partner_number = self.browse(cr, uid, ids[0]).partner_number
             if len_attendees > partner_number:
                 val['partner_number'] = curr_partner_number
-                warn['title'] = 'Warning'
-                warn['message'] = 'Max number of partners is too low! Returning to orginal value'
+                warn['title'] = _('Warning')
+                warn['message'] = _('Max number of partners is too low! Returning to orginal value')
         return {'value': val, 'warning' : warn}
 
     def copy(self, cr, uid, id, default, context=None):
@@ -80,8 +81,8 @@ class obuka_session(osv.osv):
     def unlink(self, cr, uid, ids, context=None):
         for obuka in self.browse(cr, uid, ids, context=context):
             if obuka.state in ['done', 'cancel']:
-                raise osv.except_osv('Error',
-                        "You can't delete this data!")
+                raise osv.except_osv(_('Error'),
+                        _("You can't delete this data!"))
         return super(obuka_session, self).unlink(cr, uid, ids, context=context)
 
 
