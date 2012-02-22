@@ -62,6 +62,7 @@
                   <button name="workflow_progress" string="Progress" type="workflow" states="draft"/>
                   <button name="workflow_done" string="Done!" type="workflow" states="progress" icon="gtk-apply"/>
                   <button name="workflow_cancel" string="Cancel!" type="workflow" states="progress,draft"/>
+                  <button name="set_to_draft" string="Set to draft" type="object" states="cancel" icon="gtk-convert"/>
                </group>
             </form>
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from osv import osv, fields
 from tools.translate import _
+import netsvc
 
 class obuka_session(osv.osv):
     _name = "obuka.session"
@@ -46,7 +47,8 @@ class obuka_session(osv.osv):
 
     }
     _defaults = {
-        'partner_number': 1
+        'partner_number': 1,
+        'state':'draft'
     }
 
     def session_done(self, cr, uid, ids, *args):
@@ -90,6 +92,13 @@ class obuka_session(osv.osv):
                 raise osv.except_osv(_('Error'),
                         _("You can't delete this data!"))
         return super(obuka_session, self).unlink(cr, uid, ids, context=context)
+
+    def set_to_draft(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state':'draft'})
+        wf_service = netsvc.LocalService('workflow')
+        for id in ids:
+            wf_service.trg_create(uid,'obuka.session', id, cr)
+        return True
 
 
 
