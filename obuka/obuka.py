@@ -7,7 +7,7 @@ class obuka_session(osv.osv):
     def _obuka_occupied(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for obuka in self.browse(cr, uid, ids, context):
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             curr_partner_number = obuka.partner_number
             curr_attendees_number = len(obuka.attendee_ids)
             if curr_partner_number == 0:
@@ -58,6 +58,18 @@ class obuka_session(osv.osv):
     def session_cancel(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'cancel'})
         return True
+
+    def onchange_partner_number(self, cr, uid, ids, partner_number):
+        val = {}
+        warn = {}
+        if ids:
+            len_attendees = len(self.browse(cr, uid, ids[0]).attendee_ids)
+            curr_partner_number = self.browse(cr, uid, ids[0]).partner_number
+            if len_attendees > partner_number:
+                val['partner_number'] = curr_partner_number
+                warn['title'] = 'Warning'
+                warn['message'] = 'Max number of partners is too low! Returning to orginal value'
+        return {'value': val, 'warning' : warn}
 
 
 obuka_session()

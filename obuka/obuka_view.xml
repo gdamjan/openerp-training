@@ -28,9 +28,9 @@
          <field name="type">form</field>
          <field name="arch" type="xml">
             <form string="Obuke">
-               <field name="name" colspan="4"/>
+               <field name="name"/>
                <field name="responsible_id"/>
-               <field name="partner_number"/>
+               <field name="partner_number" on_change="onchange_partner_number(partner_number)"/>
                <field name="occupied"/>
                <notebook colspan="4">
                   <page string="Courses">
