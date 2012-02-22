@@ -59,10 +59,9 @@
                </notebook>
                <group col="7" colspan="4">
                   <field name="state" colspan="4" />
-                  <button name="session_done" string="Done!" type="object"
-                     states="draft,cancel" icon="gtk-apply"/>
-                  <button name="session_cancel" string="Cancel!" type="object" states="done,draft"/>
-                  <button name="session_draft" string="Make it draft!" type="object" states="done,cancel"/>
+                  <button name="workflow_progress" string="Progress" type="workflow" states="draft"/>
+                  <button name="workflow_done" string="Done!" type="workflow" states="progress" icon="gtk-apply"/>
+                  <button name="workflow_cancel" string="Cancel!" type="workflow" states="progress,draft"/>
                </group>
             </form>
 

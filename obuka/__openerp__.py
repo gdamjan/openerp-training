@@ -31,7 +31,8 @@
             'security/obuka_security.xml',
             'security/ir.model.access.csv',
             'obuka_view.xml',
-            'partner_view.xml'
+            'partner_view.xml',
+            'obuka_workflow.xml',
             ],
 
     'demo_xml': [],

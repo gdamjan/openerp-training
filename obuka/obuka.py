@@ -54,7 +54,12 @@ class obuka_session(osv.osv):
         return True
 
     def session_draft(self, cr, uid, ids, *args):
+        # as soon we defined a workflow this wont be possible
         self.write(cr, uid, ids, {'state':'draft'})
+        return True
+
+    def session_progress(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state':'progress'})
         return True
 
     def session_cancel(self, cr, uid, ids, *args):
