@@ -89,6 +89,12 @@
                   domain="[('state','=','cancel')]" />
                <field name="name"/>
                <field name="responsible_id"/>
+               <newline/>
+               <group expand="0" string="Extended filters...">
+                  <field name="description" />
+                  <field name="partner_number" />
+                  <field name="occupied" />
+               </group>
             </search>
          </field>
       </record>
