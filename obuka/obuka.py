@@ -77,6 +77,13 @@ class obuka_session(osv.osv):
         })
         return super(obuka_session, self).copy(cr, uid, id, default, context=context)
 
+    def unlink(self, cr, uid, ids, context=None):
+        for obuka in self.browse(cr, uid, ids, context=context):
+            if obuka.state in ['done', 'cancel']:
+                raise osv.except_osv('Error',
+                        "You can't delete this data!")
+        return super(obuka_session, self).unlink(cr, uid, ids, context=context)
+
 
 
 obuka_session()
