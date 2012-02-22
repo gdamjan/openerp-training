@@ -117,6 +117,7 @@
          <field name="view_type">form</field>
          <field name="view_id" ref="view_obuka_session_tree"/>
          <field name="search_view_id" ref= "view_obuka_session_filter"/>
+         <field name="help">Tip tip.. this shows in the list UI</field>
       </record>
 
 
