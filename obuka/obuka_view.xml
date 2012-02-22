@@ -98,10 +98,10 @@
                <newline/>
                <group expand="0" string="Group by...">
                   <filter string="State"
-                     icon="terp-stock-effects-object-colorize"
+                     icon="terp-stock_effects-object-colorize"
                      context="{'group_by':'state'}" />
                   <filter string="User"
-                     icon="terp-stock-effects-object-colorize"
+                     icon="terp-stock_effects-object-colorize"
                      context="{'group_by':'responsible_id'}" />
                </group>
             </search>
