@@ -15,6 +15,8 @@
                <field name="state" />
                <field name="description"/>
                <field name="responsible_id"/>
+               <field name="partner_number"/>
+               <field name="occupied" widget="progressbar"/>
             </tree>
          </field>
       </record>
@@ -28,6 +30,8 @@
             <form string="Obuke">
                <field name="name" colspan="4"/>
                <field name="responsible_id"/>
+               <field name="partner_number"/>
+               <field name="occupied"/>
                <notebook colspan="4">
                   <page string="Courses">
                      <field name="course_ids" colspan="4" nolabel="1">

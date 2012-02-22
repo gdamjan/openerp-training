@@ -4,25 +4,47 @@ from osv import osv, fields
 class obuka_session(osv.osv):
     _name = "obuka.session"
     _order = 'name'
+    def _obuka_occupied(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for obuka in self.browse(cr, uid, ids, context):
+            import pdb; pdb.set_trace()
+            curr_partner_number = obuka.partner_number
+            curr_attendees_number = len(obuka.attendee_ids)
+            if curr_partner_number == 0:
+                res[obuka.id] = 0
+            else:
+                res[obuka.id] = float(curr_attendees_number) / curr_partner_number * 100
+        return res
+
     _columns = {
-       'name': fields.char('Name', size=32, required=True,readonly=True,
+        'name': fields.char('Name', size=32, required=True,readonly=True,
             states={'draft': [('readonly', False)]}
             ),
-       'description': fields.text('Description'),
-       'state': fields.selection([
+        'description': fields.text('Description'),
+        'state': fields.selection([
               ('draft', 'Draft'),
               ('done', 'Done'),
               ('cancel', 'Cancel'),
             ],'State',
             required=True,
             readonly=True),
-       'responsible_id': fields.many2one('res.users', 'Responsible user'),
-       'course_ids': fields.one2many('obuka.course', 'session_id', 'Course'),
-       'attendee_ids': fields.many2many('res.partner',
+        'responsible_id': fields.many2one('res.users', 'Responsible user'),
+        'course_ids': fields.one2many('obuka.course', 'session_id', 'Course'),
+        'attendee_ids': fields.many2many('res.partner',
                                         'session_partner_rel',
                                         'session_id',
                                         'partner_id',
-                                        'Attendees')
+                                        'Attendees'),
+        'partner_number': fields.integer('Max number of attendees',
+            required=True),
+        'occupied': fields.function(_obuka_occupied,
+            method=True,
+            string='Occupied(%)',
+            type='float')
+
+    }
+    _defaults = {
+        'partner_number': 1
     }
 
     def session_done(self, cr, uid, ids, *args):
