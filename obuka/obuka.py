@@ -97,6 +97,7 @@ class obuka_session(osv.osv):
         self.write(cr, uid, ids, {'state':'draft'})
         wf_service = netsvc.LocalService('workflow')
         for id in ids:
+            wf_service.trg_delete(uid,'obuka.session', id, cr)
             wf_service.trg_create(uid,'obuka.session', id, cr)
         return True
 
