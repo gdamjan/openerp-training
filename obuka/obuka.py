@@ -24,6 +24,7 @@ class obuka_session(osv.osv):
         'description': fields.text('Description'),
         'state': fields.selection([
               ('draft', 'Draft'),
+              ('progress', 'Progress'),
               ('done', 'Done'),
               ('cancel', 'Cancel'),
             ],'State',
