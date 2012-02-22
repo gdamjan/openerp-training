@@ -71,6 +71,13 @@ class obuka_session(osv.osv):
                 warn['message'] = 'Max number of partners is too low! Returning to orginal value'
         return {'value': val, 'warning' : warn}
 
+    def copy(self, cr, uid, id, default, context=None):
+        default.update({
+            'name': self.browse(cr, uid, id).name + ' (copy)'
+        })
+        return super(obuka_session, self).copy(cr, uid, id, default, context=context)
+
+
 
 obuka_session()
 
