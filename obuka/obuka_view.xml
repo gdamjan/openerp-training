@@ -68,6 +68,32 @@
          </field>
       </record>
 
+      <record id="view_obuka_session_filter"
+            model="ir.ui.view">
+         <field name="name">view.obuka.session.filter</field>
+         <field name="model">obuka.session</field>
+         <field name="type">search</field>
+         <field name="arch" type="xml">
+            <search string="Search Sessions">
+               <filter icon="terp-check"
+                  string="Draft"
+                  help="Draft Sessions"
+                  domain="[('state','=','draft')]" />
+               <filter icon="terp-check"
+                  string="Done"
+                  help="Done Sessions"
+                  domain="[('state','=','done')]" />
+               <filter icon="terp-check"
+                  string="Canceled"
+                  help="Canceled Sessions"
+                  domain="[('state','=','cancel')]" />
+               <field name="name"/>
+               <field name="responsible_id"/>
+            </search>
+         </field>
+      </record>
+
+
       <record id="action_obuka_tree"
          model="ir.actions.act_window">
          <field name="name">Obuke</field>
@@ -75,6 +101,7 @@
          <field name="res_model">obuka.session</field>
          <field name="view_type">form</field>
          <field name="view_id" ref="view_obuka_session_tree"/>
+         <field name="search_view_id" ref= "view_obuka_session_filter"/>
       </record>
 
 
