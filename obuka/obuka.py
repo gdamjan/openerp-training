@@ -40,7 +40,7 @@ class obuka_session(osv.osv):
         'occupied': fields.function(_obuka_occupied,
             method=True,
             string='Occupied(%)',
-            type='float')
+            type='float', store=True)
 
     }
     _defaults = {
