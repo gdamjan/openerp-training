@@ -30,7 +30,8 @@
             <form string="Obuke">
                <field name="name"/>
                <field name="responsible_id"/>
-               <field name="partner_number" on_change="onchange_partner_number(partner_number)"/>
+               <field name="partner_number" on_change="onchange_partner_number(partner_number)"
+                  groups="obuka.group_admin_obuka"/>
                <field name="occupied"/>
                <notebook colspan="4">
                   <page string="Courses">
@@ -90,7 +91,7 @@
                <field name="name"/>
                <field name="responsible_id"/>
                <newline/>
-               <group expand="0" string="Extended filters...">
+               <group expand="0" string="Extended filters..." groups="base.group_extended">
                   <field name="description" />
                   <field name="partner_number" />
                   <field name="occupied" />
