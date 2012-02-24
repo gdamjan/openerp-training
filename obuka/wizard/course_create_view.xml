@@ -7,10 +7,13 @@
          <field name="type">form</field>
          <field name="arch" type="xml">
             <form string="Create Courses">
+               <separator string="How many courses do you want to create for selected instructor?"/>
+               <newline/>
                <field name="course_number" />
+               <field name="instructor_id" />
                <newline/>
                <button special="cancel" string="Cancel" icon="gtk-cancel" />
-               <button name="create_courses" string="Create" type="object" icon="gtk-ok" default_focus="1" />
+               <button name="create_courses" string="Create" type="object" icon="gtk-ok" default_focus="1"/>
             </form>
          </field>
       </record>
