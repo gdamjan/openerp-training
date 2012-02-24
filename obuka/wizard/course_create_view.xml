@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+      <record id="wizard_course_create_view" model="ir.ui.view">
+         <field name="name">wizard.course.create</field>
+         <field name="model">obuka.course.create</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+            <form string="Create Courses">
+               <field name="course_number" />
+               <newline/>
+               <button special="cancel" string="Cancel" icon="gtk-cancel" />
+               <button name="create_courses" string="Create" type="object" icon="gtk-ok" default_focus="1" />
+            </form>
+         </field>
+      </record>
+
+      <act_window name="Create Courses"
+         res_model="obuka.course.create"
+         src_model="obuka.session"
+         view_type="form"
+         view_mode="form"
+         target="new"
+         id="action_obuka_create_course"
+      />
+   </data>
+</openerp>
