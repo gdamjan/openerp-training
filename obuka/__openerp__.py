@@ -33,6 +33,7 @@
             'obuka_view.xml',
             'partner_view.xml',
             'obuka_workflow.xml',
+            'wizard/course_create_view.xml',
             ],
 
     'demo_xml': [],
