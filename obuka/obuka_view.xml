@@ -178,5 +178,13 @@
          parent="obuka_root_menu"
          action="action_course_tree" />
 
+      <act_window
+         id="action_obuka_course_list"
+         name="Courses"
+         res_model="obuka.course"
+         src_model="obuka.session"
+         domain="[('session_id','=','active_id')]"
+      />
+
    </data>
 </openerp>
